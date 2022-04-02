@@ -1,0 +1,15 @@
+<div class="container-mae">
+  <form [formGroup]="userForm" class="login">
+      <h1>Semantix.</h1>
+      <div class="input-email">
+          <label for="">E-mail</label><input type="email" formControlName="email" id="">
+      </div>
+      <div class="input-senha">
+          <label for="">Senha</label><input type="password" formControlName="senha" id="">
+      </div>
+
+          <input class="input-entrar" type="submit" value="Entrar" (click)="enviar()">
+
+  </form>
+</div>
+

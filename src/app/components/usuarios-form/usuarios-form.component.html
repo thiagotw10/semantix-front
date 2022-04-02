@@ -1,0 +1,73 @@
+
+
+  <div class="col-lg-12" style="position: absolute; width: 85%; height: 100vh; display: flex; justify-content: center; align-items: center;">
+      <section class="card">
+
+          <header class="card-header">
+             <p *ngIf="!idUpdate"> Adicionar usuário </p>
+             <p *ngIf="idUpdate"> Editar usuário </p>
+          </header>
+          <div class="card-body">
+              <div class=" form">
+
+
+                       <form [formGroup]="userForm">
+
+
+                      <div class="container-grupo" style="display: flex;">
+                            <div class="form-group m-3">
+                                <label for="cname" class="control-label col-lg-2" style="display: flex; max-width: 321px !important;">Nome</label>
+                                <div class="col-lg-10">
+
+                                    <input   class=" form-control" formControlName="nome" minlength="2" type="text" required />
+
+                                </div>
+                            </div>
+                            <div class="form-group m-3">
+                                <label for="cname" class="control-label col-lg-2" style="display: flex; max-width: 321px !important;">Email</label>
+                                <div class="col-lg-10">
+
+                                    <input   class=" form-control" formControlName="email" minlength="2" type="email" required />
+
+                                </div>
+                            </div>
+                      </div>
+
+                      <div class="container-grupo" style="display: flex;">
+
+
+                                <div class="form-group m-3">
+                                    <label style="display: flex; max-width: 321px !important;" for="cname" class="control-label col-lg-2">Senha</label>
+                                    <div class="col-lg-10">
+
+                                        <input  class=" form-control" formControlName="senha" minlength="2" type="password"/>
+
+                                    </div>
+                                </div>
+                                <div class="form-group m-3">
+                                    <label style="display: flex; max-width: 321px !important;" for="cemail" class="control-label col-lg-2">Telefone</label>
+                                    <div class="col-lg-10">
+                                    <input type="text" class="form-control" formControlName="telefone">
+
+                                    </div>
+                                </div>
+
+                      </div>
+
+
+                      <div class="form-group">
+
+                        <div  style="width: 100%;height: 68px;display: flex; justify-content: end; align-items: center; padding: 15px;">
+                            <button class="btn btn-default m-2" type="button"><a routerLink="/cms/usuarios">Cancelar</a></button>
+                            <button class="btn btn-primary mt-2 mb-2 " *ngIf="!idUpdate" (click)="userSubmit()" >Salvar</button>
+                            <button class="btn btn-primary mt-2 mb-2 " *ngIf="idUpdate" (click)="userSubmitUpdate()" >Update</button>
+
+                      </div>
+                  </div>
+                  </form>
+
+
+              </div>
+</div>
+</section>
+</div>
