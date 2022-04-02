@@ -11,7 +11,8 @@ import { UsuariosFormComponent } from './components/usuarios-form/usuarios-form.
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import { JobsFormComponent } from './components/jobs-form/jobs-form.component';
 import { LoginComponent } from './login/login.component';
-import { NavBarComponent } from './components/nav-bar/nav-bar.component'
+import { NavBarComponent } from './components/nav-bar/nav-bar.component';
+import {NgxMaskModule } from 'ngx-mask';
 @NgModule({
   declarations: [
     AppComponent,
@@ -28,7 +29,10 @@ import { NavBarComponent } from './components/nav-bar/nav-bar.component'
     HttpClientModule,
     NgbModule,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    NgxMaskModule.forRoot({
+      dropSpecialCharacters: false
+    })
   ],
   providers: [],
   bootstrap: [AppComponent]
