@@ -13,6 +13,9 @@ export class JobsFormComponent implements OnInit {
 
 
   idUpdate:any;
+  intervalos:any = false;
+  horarios:any = false;
+
 
 
   constructor(private servicos: AxiosService, private router:ActivatedRoute ) { }
@@ -108,6 +111,24 @@ export class JobsFormComponent implements OnInit {
       console.log('erro')
     }
   }
+
+
+  horario(){
+    
+    if(this.userForm.value.recorrencia == 'horário fixo'){
+      this.horarios = true
+      this.intervalos = false;
+    }else if (this.userForm.value.recorrencia == 'intervalo'){
+      this.intervalos = true
+      this.horarios = false;
+    }else{
+      this.intervalos = false;
+      this.horarios = false;
+    }
+    
+  }
+
+ 
 
 
 
