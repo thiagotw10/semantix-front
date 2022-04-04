@@ -18,10 +18,10 @@ constructor(private _http: HttpClient){
 
 
 
-apiLogin = 'localhost:8080/login';
+apiLogin = 'https://semantix-api-2.herokuapp.com/login';
 
-apiUrl = 'localhost:8080/login/user';
-apiUrlJobs = 'localhost:8080/login/jobs';
+apiUrl = 'https://semantix-api-2.herokuapp.com/user';
+apiUrlJobs = 'https://semantix-api-2.herokuapp.com/jobs';
 
 
 
