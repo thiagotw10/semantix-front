@@ -26,12 +26,12 @@ export class JobsFormComponent implements OnInit {
     this.servicos.buscaUpdateJobs(this.idUpdate).subscribe((res)=>{
       console.log(res)
         this.userForm.patchValue({
-          nome: res.data[0].nome,
-          usuario: res.data[0].usuario,
-          status: res.data[0].status,
-          recorrencia: res.data[0].tipo_recorrencia,
-          valor: res.data[0].valor_recorrencia,
-          caso: res.data[0].caso
+          nome: res.data.nome,
+          usuario: res.data.usuario,
+          status: res.data.status,
+          recorrencia: res.data.recorrencia,
+          valor: res.data.valor,
+          caso: res.data.caso
         })
     })
 
@@ -65,7 +65,18 @@ export class JobsFormComponent implements OnInit {
             timer: 1500
           })
 
+      }, (err) => {
+
+        Swal.fire({
+          position: 'center',
+          icon: 'warning',
+          title: 'Ops, job com esse nome já existe.',
+          showConfirmButton: false,
+          timer: 1500
+        })
+
       })
+
     }else{
       console.log('prencha todos os campos ...')
       Swal.fire({
@@ -83,15 +94,7 @@ export class JobsFormComponent implements OnInit {
     if(this.userForm.valid){
 
       this.servicos.jobsUpdate(this.userForm.value, this.idUpdate).subscribe((res)=>{
-        if(res.message == 'jobs não encontrado'){
-          Swal.fire({
-            position: 'center',
-            icon: 'warning',
-            title: 'Ops, job não existe.',
-            showConfirmButton: false,
-            timer: 1500
-          })
-        }else{
+
 
           Swal.fire({
             position: 'center',
@@ -100,8 +103,18 @@ export class JobsFormComponent implements OnInit {
             showConfirmButton: false,
             timer: 1500
           })
-        }
 
+
+
+      }, (err) => {
+
+        Swal.fire({
+          position: 'center',
+          icon: 'warning',
+          title: 'Ops, job com esse nome já existe.',
+          showConfirmButton: false,
+          timer: 1500
+        })
 
       })
 
@@ -114,7 +127,7 @@ export class JobsFormComponent implements OnInit {
 
 
   horario(){
-    
+
     if(this.userForm.value.recorrencia == 'horário fixo'){
       this.horarios = true
       this.intervalos = false;
@@ -125,10 +138,10 @@ export class JobsFormComponent implements OnInit {
       this.intervalos = false;
       this.horarios = false;
     }
-    
+
   }
 
- 
+
 
 
 

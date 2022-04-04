@@ -21,12 +21,11 @@ export class UsuariosFormComponent implements OnInit {
 
     this.idUpdate = this.router.snapshot.paramMap.get('id');
     this.servicos.buscaUpdate(this.idUpdate).subscribe((res)=>{
-      console.log(res)
         this.userForm.patchValue({
-          nome: res.data[0].nome,
-          email: res.data[0].email,
-          senha: res.data[0].senha,
-          telefone: res.data[0].telefone
+          nome: res.data.nome,
+          email: res.data.email,
+          senha: res.data.senha,
+          telefone: res.data.telefone
         })
     })
 
@@ -47,15 +46,6 @@ export class UsuariosFormComponent implements OnInit {
       console.log(this.userForm.value)
 
       this.servicos.usuariosAdd(this.userForm.value).subscribe((res)=>{
-        if(res.message == 'nome ou email já existe.'){
-          Swal.fire({
-            position: 'center',
-            icon: 'warning',
-            title: 'Ops, usuário ou email já existem.',
-            showConfirmButton: false,
-            timer: 1500
-          })
-        }else{
 
           this.userForm.reset();
 
@@ -66,10 +56,23 @@ export class UsuariosFormComponent implements OnInit {
             showConfirmButton: false,
             timer: 1500
           })
-        }
 
+
+
+      }, (err) => {
+
+        Swal.fire({
+          position: 'center',
+          icon: 'warning',
+          title: 'Ops, usuário ou email já existem.',
+          showConfirmButton: false,
+          timer: 1500
+        })
 
       })
+
+
+
     }else{
       console.log('prencha todos os campos ...')
       Swal.fire({
@@ -87,28 +90,26 @@ export class UsuariosFormComponent implements OnInit {
     if(this.userForm.valid){
 
       this.servicos.usuariosUpdate(this.userForm.value, this.idUpdate).subscribe((res)=>{
-        if(res.message == 'nome ou email já existe.'){
-          Swal.fire({
-            position: 'center',
-            icon: 'warning',
-            title: 'Ops, usuário ou email já existem.',
-            showConfirmButton: false,
-            timer: 1500
-          })
-        }else{
 
-          this.userForm.reset();
 
           Swal.fire({
             position: 'center',
             icon: 'success',
-            title: 'Usuário cadastrado com sucesso!!',
+            title: 'Usuário editado com sucesso!!',
             showConfirmButton: false,
             timer: 1500
           })
-        }
 
 
+
+      }, (error)=>{
+        Swal.fire({
+          position: 'center',
+          icon: 'warning',
+          title: 'Ops, usuário ou email já existem.',
+          showConfirmButton: false,
+          timer: 1500
+        })
       })
 
 

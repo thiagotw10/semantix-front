@@ -45,12 +45,8 @@ export class UsuariosComponent implements OnInit {
       if (result.isConfirmed) {
 
         this.servicos.usuariosDelete(id).subscribe((res)=>{
-          console.log(res, "res==>");
-
 
           this.servicos.usuarios().subscribe((res)=>{
-            console.log(res, "res==>");
-
             this.dados = res.data;
             this.lista = this.dados;
           })

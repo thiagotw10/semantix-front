@@ -31,8 +31,6 @@ export class LoginComponent implements OnInit {
     if(this.userForm.valid){
       this.servicos.login(this.userForm.value).subscribe((res)=>{
 
-        if(res.message == 'Usuario logado com sucesso.'){
-
           window.localStorage.setItem('logintw10', 'logado')
 
           Swal.fire({
@@ -45,10 +43,14 @@ export class LoginComponent implements OnInit {
 
           this.router.navigate(['/cms/usuarios']);
 
-        }else{
 
 
-          window.localStorage.setItem('logintw10', 'deslogado')
+
+
+
+    }, (err)=>{
+      
+      window.localStorage.setItem('logintw10', 'deslogado')
           Swal.fire({
             position: 'center',
             icon: 'warning',
@@ -56,8 +58,9 @@ export class LoginComponent implements OnInit {
             showConfirmButton: false,
             timer: 1700
           })
-        }
     })
+
+
     }else{
       Swal.fire({
         position: 'center',

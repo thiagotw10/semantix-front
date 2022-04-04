@@ -32,12 +32,12 @@
     </thead>
     <tbody>
     <tr *ngFor="let usuario of lista | slice: (page-1) * pageSize : (page-1) * pageSize + pageSize">
-      <th scope="row">{{usuario.id}}</th>
+      <th scope="row">{{usuario._id}}</th>
       <td>{{ usuario.nome}} </td>
       <td>{{ usuario.email}}</td>
       <td>{{ usuario.telefone}}</td>
       <td class="text-center">
-        <a [routerLink]="['/cms/usuarios/', usuario.id]">
+        <a [routerLink]="['/cms/usuarios/', usuario._id]">
             <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-edit" width="32" height="32" viewBox="0 0 24 24" stroke-width="1.5" stroke="#0d6efd" fill="none" stroke-linecap="round" stroke-linejoin="round">
                 <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
                 <path d="M9 7h-3a2 2 0 0 0 -2 2v9a2 2 0 0 0 2 2h9a2 2 0 0 0 2 -2v-3" />
@@ -45,7 +45,7 @@
                 <line x1="16" y1="5" x2="19" y2="8" />
             </svg>
         </a>
-        <button style="border:none; background-color: none;" (click)="delete(usuario.id)">
+        <button style="border:none; background-color: none;" (click)="delete(usuario._id)">
             <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-trash" width="32" height="32" viewBox="0 0 24 24" stroke-width="1.5" stroke="#ff2825" fill="none" stroke-linecap="round" stroke-linejoin="round">
                 <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
                 <line x1="4" y1="7" x2="20" y2="7" />
