@@ -32,6 +32,15 @@ body {
   font-size: 20px
 }
 
+.hamburguer{
+  position: fixed;
+  z-index: 99999;
+}
+
+.hamburguerX{
+  z-index: 999999999;
+}
+
 .nav-link:hover .fa {
   transform: rotate(360deg)
 }
