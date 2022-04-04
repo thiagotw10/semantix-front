@@ -5,3 +5,18 @@
   text-decoration: none;
 }
 
+
+@media (max-width: 700px) {
+  .celular{
+    font-size: 10px !important;
+  }
+
+  .card-modais{
+    display: none;
+  }
+
+  .panel-body{
+    flex-direction: column !important;
+    justify-content: space-evenly !important;
+  }
+}
