@@ -13,7 +13,10 @@ export class UsuariosFormComponent implements OnInit {
 
 
   idUpdate:any;
+  hamburguer:any;
 
+
+  
 
   constructor(private servicos: AxiosService, private router:ActivatedRoute ) { }
 

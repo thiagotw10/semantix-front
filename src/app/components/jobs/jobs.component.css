@@ -10,6 +10,7 @@
 @media (max-width: 700px) {
   .celular{
     font-size: 10px !important;
+    width: 100% !important;
   }
   .card-modais{
     display: none;

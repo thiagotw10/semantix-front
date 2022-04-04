@@ -36,6 +36,25 @@ body {
   transform: rotate(360deg)
 }
 
+@media (max-width: 700px) {
+ 
+  .hamburguer{
+    position: fixed;
+    z-index: 99999;
+  }
+
+  .hamburguerX{
+    z-index: 999999999;
+  }
+
+  .container-modais{
+    width: 100% !important;
+  }
+
+  .form{
+    width: 100% !important;
+  }
+}
 
 
 

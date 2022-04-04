@@ -15,8 +15,10 @@ export class JobsFormComponent implements OnInit {
   idUpdate:any;
   intervalos:any = false;
   horarios:any = false;
+  hamburguer:any = false;
 
 
+  
 
   constructor(private servicos: AxiosService, private router:ActivatedRoute ) { }
 
@@ -47,6 +49,17 @@ export class JobsFormComponent implements OnInit {
     'valor' : new FormControl('', Validators.required),
     'caso' : new FormControl('', Validators.required)
   })
+
+
+  menu(){
+
+    if(!this.hamburguer == true){
+      this.hamburguer = true
+    }else if(!this.hamburguer == false){
+      this.hamburguer = false
+    }
+      
+  }
 
   userSubmit(){
 

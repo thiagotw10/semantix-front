@@ -9,9 +9,22 @@ import Swal from 'sweetalert2';
 })
 export class NavBarComponent implements OnInit {
 
+  hamburguer:any = true;
+
   constructor(private router: Router) { }
 
   ngOnInit(): void {
+  }
+
+
+  menu(){
+
+    if(!this.hamburguer == true){
+      this.hamburguer = true
+    }else if(!this.hamburguer == false){
+      this.hamburguer = false
+    }
+      
   }
 
   sair(){

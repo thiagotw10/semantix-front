@@ -1,7 +1,16 @@
 
 <div  class="container d-flex">
 
-  <div class="d-flex flex-column flex-shrink-0 bg-light vh-100" style="width: 100px;">
+  <div class="hamburguerX" style="display: flex; position: fixed; right: 10px; bottom: 10px;" (click)="menu()">
+    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-menu-2" width="32" height="32" viewBox="0 0 24 24" stroke-width="1.5" stroke="#00abfb" fill="none" stroke-linecap="round" stroke-linejoin="round">
+      <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+      <line x1="4" y1="6" x2="20" y2="6" />
+      <line x1="4" y1="12" x2="20" y2="12" />
+      <line x1="4" y1="18" x2="20" y2="18" />
+    </svg>
+  </div>
+
+  <div class="hamburguer d-flex flex-column flex-shrink-0 bg-light vh-100" style="width: 100px;" *ngIf="hamburguer">
     <ul class="nav nav-pills nav-flush flex-column mb-auto text-center">
         <li class="nav-item"> <a routerLink="/cms/usuarios" class="nav-link  py-3 border-bottom"> <i class="fa fa-user"></i> <small>Usuários</small> </a> </li>
         <li> <a routerLink="/cms/jobs"class="nav-link py-3 border-bottom"> <i class="fa fa-bookmark"></i> <small>Jobs</small> </a> </li>
