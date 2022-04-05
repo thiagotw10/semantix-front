@@ -1,7 +1,7 @@
 {
     "/api/*":{
         "target": "https://semantix-api-2.herokuapp.com",
-        "secure": false,
+        "secure": true,
         "loglevel": "debug",
         "pathRewrite":{
           "^/api*": ""
