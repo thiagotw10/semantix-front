@@ -31,7 +31,8 @@ export class LoginComponent implements OnInit {
     if(this.userForm.valid){
       this.servicos.login(this.userForm.value).subscribe((res)=>{
 
-          window.localStorage.setItem('logintw10', 'logado')
+          window.localStorage.setItem('logintw10', 'logado');
+          window.localStorage.setItem('usuario', this.userForm.value.email)
 
           Swal.fire({
             position: 'center',
